@@ -23,7 +23,7 @@
                 Sexo:
                 <span>{{ employeeDetailById.gender }}</span>
             </h2>
-                <button class="ButtonUpdateEmployee" v-on:click="clickUpdateEmployee(userId)">Actualizar mi información</button>
+                <button class="buttonUpdateEmployee" v-on:click="clickUpdateEmployee(userId)">Actualizar mi información</button>
         </div>
     </div>
 </template>
@@ -117,5 +117,21 @@
         border-radius: 20px;
         padding: 30px 80px;
         margin: 30px 0 0 0;
+    }
+    .buttonUpdateEmployee{
+        color: #000000;
+        font-size: 18px;
+        background: #e5e7e9;
+        border: 1px solid #e5e7e9;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-right: 10px;
+    }
+    .buttonUpdateEmployee:hover{
+        color: #000000;
+        font-size: 18px;        
+        font-weight: 900;
+        background: #78a3ee;
+        border: 1px solid #e5e7e9;
     }
 </style>

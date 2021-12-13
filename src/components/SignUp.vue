@@ -16,7 +16,7 @@
                 <br>
                 <input type="text" v-model="user.gender" placeholder="Sexo">
                 <br>
-                <button type="submit">Registrarse</button>
+                <button type="submit">Enviar</button>
             </form>
         </div>
     </div>
@@ -100,7 +100,7 @@
         align-items: center;
     }
     .containerSignUpUser {
-        border: 3px solid #283747;
+        border: 0px solid #283747;
         border-radius: 10px;
         width: 25%;
         height: 60%;
@@ -124,18 +124,19 @@
         border: 1px solid #283747;
     }
     .signUpUser button{
-        width: 100%;
-        height: 40px;
-        color: #E5E7E9;
-        background: #283747;
-        border: 1px solid #E5E7E9;
+        color: #000000;
+        font-size: 18px;
+        background: #e5e7e9;
+        border: 1px solid #e5e7e9;
         border-radius: 5px;
-        padding: 10px 25px;
-        margin: 5px 0 25px 0;
+        padding: 10px 20px;
+        margin-right: 10px;
     }
     .signUpUser button:hover{
-        color: #E5E7E9;
-        background: crimson;
-        border: 1px solid #283747;
+        color: #000000;
+        font-size: 18px;        
+        font-weight: 900;
+        background: #78a3ee;
+        border: 1px solid #e5e7e9;
     }
 </style>

@@ -175,9 +175,6 @@
                     this.$router.push({name: "home"});
                     this.$apollo.queries.employeeDetailById.refetch()
                     //this.$emit('completedUpdateEmployee');
-
-
-
                 })
                 //cuando el resultado al llamado del API es NOK
                 .catch((error) => {
@@ -195,25 +192,28 @@
 
 <style>
     .w3-container{
-      margin-top: 50px;
-      /*border: 1px solid #000000;*/
-      height: 85%;
+        margin-top: 50px;
+        /*border: 1px solid #000000;*/
+        height: 85%;
     }
     .w3-row {
-      margin-top: 10px;
-      margin-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     .w3-button{
-      color: #000000;
-      background: #fcc924;
-      border: 1px solid #e5e7e9;
-      border-radius: 5px;
-      padding: 10px 20px;
-      margin-right: 10px;
+        color: #000000;
+        font-size: 18px;
+        background: #e5e7e9;
+        border: 1px solid #e5e7e9;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-right: 10px;
     }
     .w3-button:hover{
-      color: #000000;
-      background: #e5e7e9;
-      border: 1px solid #e5e7e9;
+        color: #000000;
+        font-size: 18px;        
+        font-weight: 900;
+        background: #78a3ee;
+        border: 1px solid #e5e7e9;
     }
 </style>
