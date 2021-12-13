@@ -6,6 +6,7 @@
       <nav>
         <button v-if="isAuth" v-on:click="loadHome"> Home </button>
         <button v-if="isAuth" v-on:click="loadAccount"> Mi Cuenta </button>
+        <button v-if="isAuth" v-on:click="loadReports"> Reportes </button>
       <!--  <button v-if="isAuth" v-on:click="loadTransaction"> Transacción </button> -->
         <button v-if="isAuth" v-on:click="logOut"> Cerrar Sesión </button>
         <button v-if="!isAuth" v-on:click="loadLogIn"> Iniciar Sesión </button>
@@ -50,6 +51,10 @@
         this.$router.push({name: "account"});
       },
       
+      loadReports: function(){
+        this.$router.push({name: "reports"});
+      },
+      
       loadTransaction: function(){
         this.$router.push({name: "transaction"});
       },
@@ -82,7 +87,8 @@
       },
 
       completedUpdateEmployee: function(){
-        this.loadHome();
+        alert("Actualización de datos exitosa");
+        this.$router.push({name: "home"});
       }, 
 
       completedTransaction: function(){

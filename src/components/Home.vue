@@ -23,7 +23,7 @@
                 Sexo:
                 <span>{{ employeeDetailById.gender }}</span>
             </h2>
-                <button class="ButtonUpdateEmployee" v-on:click="clickUpdateEmployee(userId)">Actualizar esta información</button>
+                <button class="ButtonUpdateEmployee" v-on:click="clickUpdateEmployee(userId)">Actualizar mi información</button>
         </div>
     </div>
 </template>
@@ -70,7 +70,8 @@
         }, 
         methods: {
             clickUpdateEmployee: function (idm, employeeDetailById) {
-                this.$router.push({name: "updateEmployee", params: {idm: idm}, props: employeeDetailById});
+                //this.$router.push({name: "updateEmployee", params: {idm: idm}, props: employeeDetailById});
+                this.$router.push({name: "updateEmployee", params: {idm: idm}});
             }
 
         }

@@ -50,6 +50,14 @@ const routes = [
     meta: {
       requiresAuth: true,
     }
+  },
+  {
+    path: '/clientes/reportes',
+    name: "reports",
+    component: Reports,
+    meta: {
+      requiresAuth: true,
+    }
   }
   //,
   //{

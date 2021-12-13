@@ -11,7 +11,7 @@
             <div class="w3-col" style="width: 50px"><i class="w3-xxlarge fa fa-at"></i></div>
             <div class="w3-rest">
             <label>Nombre:  </label>        
-            <input class="w3-input w3-border" name="name_empl" type="text" placeholder="Nombre empleado"
+            <input class="w3-input w3-border" name="name" type="text" placeholder="Nombre empleado"
             v-bind:value="employeeDetailById.name" v-on:input="saveemployee.name = $event.target.value" required/>
             </div>
         </div>
@@ -20,7 +20,7 @@
             <div class="w3-col" style="width: 50px"><i class="w3-xxlarge fa fa-key"></i></div>
             <div class="w3-rest">
             <label>Correo electrónico:  </label>        
-            <input class="w3-input w3-border" name="email_empl" type="text" placeholder="Correo electrónico"
+            <input class="w3-input w3-border" name="email" type="text" placeholder="Correo electrónico"
             v-bind:value="employeeDetailById.email" v-on:input="saveemployee.email = $event.target.value" required/>
             </div>
         </div>
@@ -29,7 +29,7 @@
             <div class="w3-col" style="width: 50px"><i class="w3-xxlarge fa fa-key"></i></div>
             <div class="w3-rest">
             <label>Sexo:  </label>        
-            <input class="w3-input w3-border" name="gender_empl" type="text" placeholder="Sexo"
+            <input class="w3-input w3-border" name="gender" type="text" placeholder="Sexo"
             v-bind:value="employeeDetailById.gender" v-on:input="saveemployee.gender = $event.target.value" required/>
             </div>
         </div>
@@ -64,6 +64,7 @@
                     username : "",
                     gender   : ""
                 }
+
             }
         },
         props:{
@@ -93,7 +94,7 @@
                         userId: parseInt(this.idm),
                     }
                 }
-            },
+            }
         }, 
         methods: {
             //Esta es la función que se llama cuando el usuario le da clic al botón del formulario
@@ -140,16 +141,22 @@
 
             updateEmployee: async function(){
                 //la invocaicón del $apollo se hablita or la inclusión del apolloprovider en el main.js
+                this.saveemployee.id = parseInt(this.idm),
+                this.saveemployee.username = this.username,
+                //this.saveemployee.name = this.name,
+                //this.saveemployee.cedula = (await this.employeeDetailById()).cedula,
+                /*this.saveemployee.cedula = employeeDetailById.cedula,
+                this.saveemployee.username = employeeDetailById.username*/
+                
+
                 await this.$apollo.mutate(
                     {
                         //Aquí es la misma estructura de mutation/query del apollo
                         mutation: gql`
-                            mutation UpdateEmployee($user: EmployeeUpdate!) {
+                            mutation UpdateEmployee($user: EmployeeUpdateInput!) {
                                 updateEmployee(user: $user) {
                                     id
-                                    cedula
                                     username
-                                    name
                                     email
                                     gender
                                 }
@@ -157,13 +164,20 @@
                         `,
                         variables:{
                             //OJO!!! con el nombre de la variable objeto que espera Apollo
-                            user: this.employee,
+                            user: this.saveemployee,
                         }
                     }
                 )
                 //cuando el resultado al llamado del API es OK
                 .then((result) => {
-                    this.$emit("completedUpdateEmployee");
+                    console.log("checkpoint ok update");
+                    alert("Actualización de datos exitosa.");
+                    this.$router.push({name: "home"});
+                    this.$apollo.queries.employeeDetailById.refetch()
+                    //this.$emit('completedUpdateEmployee');
+
+
+
                 })
                 //cuando el resultado al llamado del API es NOK
                 .catch((error) => {
@@ -174,7 +188,7 @@
         },
         created: async function(){
             //this.EmployeeDetailById();
-            this.$apollo.queries.employeeDetailById.refetch()
+            //this.$apollo.queries.employeeDetailById.refetch()
         }
     };
 </script>
