@@ -1,11 +1,15 @@
 <template>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <div id="app" class="app">
 
     <div class="header">
-      <h1>Sarlaft<br />Superfinanciera</h1>
+      <label for = "" class ="brand">
+        <a href=""><img src = "./assets/sarlaft_logo.png" alt=""></a>
+      </label>
+      <!--<h1>Sarlaft<br />Superfinanciera</h1>-->
       <nav>
         <button v-if="isAuth" v-on:click="loadHome"> Home </button>
-        <button v-if="isAuth" v-on:click="loadAccount"> Mi Cuenta </button>
+      <!--  <button v-if="isAuth" v-on:click="loadAccount"> Mi Cuenta </button>-->
         <button v-if="isAuth" v-on:click="loadReports"> Reportes </button>
       <!--  <button v-if="isAuth" v-on:click="loadTransaction"> Transacción </button> -->
         <button v-if="isAuth" v-on:click="logOut"> Cerrar Sesión </button>
@@ -100,7 +104,8 @@
   }
 </script>
 
-<style>
+<style>    
+
   body {
     max-width: 0 0 0 0;
   }
@@ -110,7 +115,7 @@
     width: 100%;
     height: 10vh;
     min-height: 100px;
-    background-color: #283747 ;
+    background-color: #2b5293 ;
     color:#E5E7E9 ;
     display: flex;
     justify-content: space-between;
@@ -119,26 +124,30 @@
   .header h1{
     width: 20%;
     text-align: center;
-  }
+  }    
+
   .header nav {
     height: 100%;
     width: 30%;
-    display: flex;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0,1fr));
     justify-content: space-around;
     align-items: center;
-    font-size: 20px;
+    font: 150% system-ui;
+    text-align: center;
+    padding: 2rem 1rem;
   }
   .header nav button{
     color: #E5E7E9;
-    background: #283747;
-    border: 1px solid #E5E7E9;
-    border-radius: 5px;
-    padding: 10px 20px;
+    background: #2b5293;
+    border: 0px solid #2b5293;
   }
   .header nav button:hover{
-    color: #283747;
-    background: #E5E7E9;
-    border: 1px solid #E5E7E9;
+    color: #E5E7E9;
+    background: #2b5293;
+    border: 0px solid #E5E7E9;
+    font-weight: 900;
   }
   .main-component{
     height: 75vh;

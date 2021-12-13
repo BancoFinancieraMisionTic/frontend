@@ -113,7 +113,7 @@
         color: #283747;
     }
     .details {
-        border: 3px solid rgba(0, 0, 0, 0.3);
+        border: 0px solid rgba(0, 0, 0, 0.3);
         border-radius: 20px;
         padding: 30px 80px;
         margin: 30px 0 0 0;

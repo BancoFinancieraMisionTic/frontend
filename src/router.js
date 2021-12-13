@@ -5,8 +5,9 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client/core
 import Login                                           from './components/Login.vue'
 import SignUp                                          from './components/SignUp.vue'
 import Home                                            from './components/Home.vue'
-import Account                                         from './components/Account.vue'
+//import Account                                         from './components/Account.vue'
 import UpdateEmployee                                  from './components/UpdateEmployee.vue'
+import Reports                                         from './components/Reports.vue'                    
 
 const routes = [
   {
@@ -33,14 +34,14 @@ const routes = [
       requiresAuth: true,
     }
   },
-  {
+  /*{
     path: '/empleado/cuenta',
     name: "account",
     component: Account,
     meta: {
       requiresAuth: true,
     }
-  },
+  },*/
   {
     path: '/empleado/actualizar/:idm',
     name: "updateEmployee",
