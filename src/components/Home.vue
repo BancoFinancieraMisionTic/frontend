@@ -4,7 +4,6 @@
         <div class="home">
             <h1>Bienvenido <span>{{ employeeDetailById.name }}</span>!</h1>
         </div>
-<!-- CHECK: AÑADIR LA OPCIÓN/BOTÓN ACTUALIZAR--> 
         <div class="details">
             <h3>Su información registrada es la siguiente.</h3>
             <h2>
@@ -69,9 +68,9 @@
             },
         }, 
         methods: {
-            clickUpdateEmployee: function (idm, employeeDetailById) {
+            clickUpdateEmployee: async function (idm, employeeDetailById) {
                 //this.$router.push({name: "updateEmployee", params: {idm: idm}, props: employeeDetailById});
-                this.$router.push({name: "updateEmployee", params: {idm: idm}});
+                await this.$router.push({name: "updateEmployee", params: {idm: idm}});
             }
 
         }

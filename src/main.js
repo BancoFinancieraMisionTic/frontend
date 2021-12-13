@@ -7,8 +7,8 @@ import { setContext }                                  from 'apollo-link-context
 
 const httpLink = createHttpLink({
     //Apigateway URL for GraphQL requests
-    //uri: 'https://heroku-apigateway.herokuapp.com/'
-    uri:'http://localhost:4000'
+    uri: 'https://sarlaft-apigateway-ms.herokuapp.com/'
+    //uri:'http://localhost:4000'
 });
 
 // Don't forget to include _, to indicate that is part of Apollo methods

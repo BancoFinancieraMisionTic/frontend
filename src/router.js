@@ -5,15 +5,25 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client/core
 import Login                                           from './components/Login.vue'
 import SignUp                                          from './components/SignUp.vue'
 import Home                                            from './components/Home.vue'
-//import Account                                         from './components/Account.vue'
+import Landing                                         from './components/Landing.vue'
 import UpdateEmployee                                  from './components/UpdateEmployee.vue'
-import Reports                                         from './components/Reports.vue'                    
+import Reports                                         from './components/Reports.vue'
+import AddClient                                         from './components/AddClient.vue'       
+
 
 const routes = [
   {
     path: '/empleado/login',
     name: "login",
     component: Login,
+    meta: {
+      requiresAuth: false,
+    }
+  },
+  {
+    path: '/landing',
+    name: "landing",
+    component: Landing,
     meta: {
       requiresAuth: false,
     }
@@ -59,7 +69,15 @@ const routes = [
     meta: {
       requiresAuth: true,
     }
-  }
+  },
+  {
+    path: '/clientes/nuevo',
+    name: "addClient",
+    component: AddClient,
+    meta: {
+      requiresAuth: true,
+    }
+  }  
   //,
   //{
   //  path: '/user/transaction',
@@ -73,8 +91,8 @@ const routes = [
 
 const apolloClient = new ApolloClient({
   //Apigateway URL for GraphQL requests
-  link : createHttpLink( {uri: "http://localhost:4000/"} ),
-  cache: new InMemoryCache()
+    link : createHttpLink( {uri: "https://sarlaft-apigateway-ms.herokuapp.com/"} ),
+    cache: new InMemoryCache()
 });
 
 const router = createRouter({

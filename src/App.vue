@@ -11,7 +11,8 @@
         <button v-if="isAuth" v-on:click="loadHome"> Home </button>
       <!--  <button v-if="isAuth" v-on:click="loadAccount"> Mi Cuenta </button>-->
         <button v-if="isAuth" v-on:click="loadReports"> Reportes </button>
-      <!--  <button v-if="isAuth" v-on:click="loadTransaction"> Transacción </button> -->
+        <button v-if="isAuth" v-on:click="loadNewClient"> Nuevo Cliente </button>        
+        <button v-if="!isAuth" v-on:click="loadLanding"> Landing </button>
         <button v-if="isAuth" v-on:click="logOut"> Cerrar Sesión </button>
         <button v-if="!isAuth" v-on:click="loadLogIn"> Iniciar Sesión </button>
         <button v-if="!isAuth" v-on:click="loadSignUp"> Registrarse </button>
@@ -50,6 +51,10 @@
       loadHome: function(){
         this.$router.push({name: "home"});
       },
+      
+      loadLanding: function(){
+        this.$router.push({name: "landing"});
+      },
 
       loadAccount: function(){
         this.$router.push({name: "account"});
@@ -58,7 +63,11 @@
       loadReports: function(){
         this.$router.push({name: "reports"});
       },
-      
+
+      loadNewClient: function(){
+        this.$router.push({name: "addClient"});
+      },
+
       loadTransaction: function(){
         this.$router.push({name: "transaction"});
       },
@@ -94,6 +103,10 @@
         alert("Actualización de datos exitosa");
         this.$router.push({name: "home"});
       }, 
+
+      completedNewClient: function(){
+        this.loadHome();
+      },  
 
       completedTransaction: function(){
         this.loadAccount();
@@ -131,12 +144,12 @@
     width: 30%;
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(3, minmax(0,1fr));
+    grid-template-columns: repeat(5, minmax(0,1fr));
     justify-content: space-around;
     align-items: center;
     font: 150% system-ui;
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 1rem 2rem;
   }
   .header nav button{
     color: #E5E7E9;
