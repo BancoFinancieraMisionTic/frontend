@@ -112,7 +112,7 @@
         font-weight: 900;
         background: #78a3ee;
         border: 1px solid #e5e7e9;
-    }
+    }/*
     .transaction {
         margin: 0;
         padding: 0%;
@@ -134,5 +134,5 @@
     }    
     .transaction h2{
         color: #283747;
-    }    
+    }    */
 </style>

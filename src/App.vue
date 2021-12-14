@@ -6,13 +6,11 @@
       <label for = "" class ="brand">
         <a href=""><img src = "./assets/sarlaft_logo.png" alt=""></a>
       </label>
-      <!--<h1>Sarlaft<br />Superfinanciera</h1>-->
       <nav>
         <button v-if="isAuth" v-on:click="loadHome"> Home </button>
-      <!--  <button v-if="isAuth" v-on:click="loadAccount"> Mi Cuenta </button>-->
         <button v-if="isAuth" v-on:click="loadReports"> Reportes </button>
         <button v-if="isAuth" v-on:click="loadNewClient"> Nuevo Cliente </button>        
-        <button v-if="!isAuth" v-on:click="loadLanding"> Landing </button>
+        <button v-if="isAuth" v-on:click="loadAccount"> Mi cuenta </button>
         <button v-if="isAuth" v-on:click="logOut"> Cerrar Sesión </button>
         <button v-if="!isAuth" v-on:click="loadLogIn"> Iniciar Sesión </button>
         <button v-if="!isAuth" v-on:click="loadSignUp"> Registrarse </button>
@@ -25,6 +23,7 @@
         v-on:completedSignUp="completedSignUp"
         v-on:logOut="logOut"
         v-on:completedTransaction="completedTransaction"
+        v-on:loadNewClient="loadNewClient"
       >
       </router-view>
     </div>
@@ -50,10 +49,6 @@
       
       loadHome: function(){
         this.$router.push({name: "home"});
-      },
-      
-      loadLanding: function(){
-        this.$router.push({name: "landing"});
       },
 
       loadAccount: function(){
@@ -138,7 +133,6 @@
     width: 20%;
     text-align: center;
   }    
-
   .header nav {
     height: 100%;
     width: 30%;

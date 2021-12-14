@@ -5,10 +5,10 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client/core
 import Login                                           from './components/Login.vue'
 import SignUp                                          from './components/SignUp.vue'
 import Home                                            from './components/Home.vue'
-import Landing                                         from './components/Landing.vue'
 import UpdateEmployee                                  from './components/UpdateEmployee.vue'
 import Reports                                         from './components/Reports.vue'
 import AddClient                                         from './components/AddClient.vue'       
+import Account                                         from './components/Account.vue' 
 
 
 const routes = [
@@ -16,14 +16,6 @@ const routes = [
     path: '/empleado/login',
     name: "login",
     component: Login,
-    meta: {
-      requiresAuth: false,
-    }
-  },
-  {
-    path: '/landing',
-    name: "landing",
-    component: Landing,
     meta: {
       requiresAuth: false,
     }
@@ -40,24 +32,24 @@ const routes = [
     path: '/empleado/home',
     name: "home",
     component: Home,
+    props: true,
     meta: {
       requiresAuth: true,
     }
   },
-  /*{
+  {
     path: '/empleado/cuenta',
     name: "account",
     component: Account,
     meta: {
       requiresAuth: true,
     }
-  },*/
+  },
   {
     path: '/empleado/actualizar/:idm',
     name: "updateEmployee",
     component: UpdateEmployee,
     props: true,
-    //props: (route) => ({employeeDetailById: employeeDetailById, ...route.params}),
     meta: {
       requiresAuth: true,
     }
@@ -78,15 +70,6 @@ const routes = [
       requiresAuth: true,
     }
   }  
-  //,
-  //{
-  //  path: '/user/transaction',
-  //  name: "transaction",
-  //  component: Transaction,
-  //  meta: {
-  //    requiresAuth: true,
-  //  }
-  //}
 ];
 
 const apolloClient = new ApolloClient({
@@ -101,7 +84,6 @@ const router = createRouter({
 });
 
 async function isAuth() {
-  //console.log("refresh "+ localStorage.getItem("tokenRefresh"));
   if(localStorage.getItem("tokenRefresh") === null || localStorage.getItem("tokenAccess") === null) {
     return false;
   }
@@ -109,8 +91,6 @@ async function isAuth() {
   try {
     var result = await apolloClient.mutate(
    
-      // GraphQL request
-      // mutation Refresh -> RefreshToken
       {
         mutation: gql`
           mutation RefreshToken($token: Refresh!) {
@@ -139,7 +119,6 @@ async function isAuth() {
 }
 
 router.beforeEach(async (to, from) => {
-  //console.log(`Routing ${from.name} to ${to.name}`);
   let is_auth =  await isAuth();
 
   if(is_auth == to.meta.requiresAuth) {

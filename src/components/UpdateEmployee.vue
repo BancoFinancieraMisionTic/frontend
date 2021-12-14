@@ -46,14 +46,10 @@
     import jwt_decode from "jwt-decode";
     export default {
         name: "UpdateEmployee",
-        //Todo lo que se pone en "data" se vuelven variables globales de javascript
         data: function(){
             return {
                 userId         : jwt_decode(localStorage.getItem("tokenRefresh")).user_id,
                 username: localStorage.getItem("username") || "none",
-                //Aquí es la misma estructura de variables en apollo
-                //objeto con los valores que el usuario pone en el formulario, iniciamente vacío
-                //employee: {},
                 saveemployee: {},
                 id_emp_id:this.idm,
                 employeeDetailById : {
@@ -70,10 +66,7 @@
         props:{
             idm: {
                 required: true
-            }/*,
-            employeeDetailById: {
-                required: true
-            }*/
+            }
         },
         apollo: {
             employeeDetailById : {
@@ -97,61 +90,12 @@
             }
         }, 
         methods: {
-            //Esta es la función que se llama cuando el usuario le da clic al botón del formulario
-            //  de registro
-            /*employeeDetailById: async function(){
-                await this.$apollo.query(
-                    {
-                        query: gql`
-                            query EmployeeDetailById($userId: Int!) {
-                                employeeDetailById(userId: $userId) {
-                                    name
-                                    cedula
-                                    email
-                                    username
-                                    gender
-                                }
-                            }                        
-                        `,
-                        variables:{
-                            userId: this.idm,
-                        }
-                    }
-                )
-                .then((result) => {
-                    //this.$emit("completedUpdateEmployee");
-                    console.log("checkpointmine");
-                    let saveemployee = { 
-                        id       :this.idm,
-                        cedula   :employeeDetailById.cedula,
-                        username :employeeDetailById.username,
-                        name     :"",
-                        email    :"",
-                        gender   :""
-                        }
-                })
-                //cuando el resultado al llamado del API es NOK
-                .catch((error) => {
-                    console.log(this.idm);
-                    console.log(error);
-                    alert("Ha fallado la actualización2 de los datos. Por favor intente de nuevo.")
-                })
-
-            },*/
-
             updateEmployee: async function(){
-                //la invocaicón del $apollo se hablita or la inclusión del apolloprovider en el main.js
                 this.saveemployee.id = parseInt(this.idm),
                 this.saveemployee.username = this.username,
-                //this.saveemployee.name = this.name,
-                //this.saveemployee.cedula = (await this.employeeDetailById()).cedula,
-                /*this.saveemployee.cedula = employeeDetailById.cedula,
-                this.saveemployee.username = employeeDetailById.username*/
                 
-
                 await this.$apollo.mutate(
                     {
-                        //Aquí es la misma estructura de mutation/query del apollo
                         mutation: gql`
                             mutation UpdateEmployee($user: EmployeeUpdateInput!) {
                                 updateEmployee(user: $user) {
@@ -163,20 +107,16 @@
                             }
                         `,
                         variables:{
-                            //OJO!!! con el nombre de la variable objeto que espera Apollo
                             user: this.saveemployee,
                         }
                     }
                 )
-                //cuando el resultado al llamado del API es OK
                 .then((result) => {
                     console.log("checkpoint ok update");
                     alert("Actualización de datos exitosa.");
                     this.$router.push({name: "home"});
                     this.$apollo.queries.employeeDetailById.refetch()
-                    //this.$emit('completedUpdateEmployee');
                 })
-                //cuando el resultado al llamado del API es NOK
                 .catch((error) => {
                     console.log(error);
                     alert("Ha fallado la actualización de los datos. Por favor intente de nuevo.")
@@ -184,8 +124,6 @@
             }
         },
         created: async function(){
-            //this.EmployeeDetailById();
-            //this.$apollo.queries.employeeDetailById.refetch()
         }
     };
 </script>

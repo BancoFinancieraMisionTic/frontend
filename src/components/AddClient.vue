@@ -44,9 +44,7 @@
                 <button type="submit">Enviar</button>
             </form>
         </div>
-
     </div>
-
 </template>
 
 
@@ -76,13 +74,9 @@
             }
         },
         methods: {
-            //Esta es la función que se llama cuando el usuario le da clic al botón del formulario
-            //  de registro
             createClient: async function(){
-                //la invocaicón del $apollo se hablita or la inclusión del apolloprovider en el main.js
                 await this.$apollo.mutate(
                     {
-                        //Aquí es la misma estructura de mutation/query del apollo
                         mutation: gql`
                             mutation CreateClient($userInput: ClientCreateInput!) {
                                 createClient(userInput: $userInput) {
@@ -103,21 +97,16 @@
                             }
                         `,
                         variables:{
-                            //OJO!!! con el nombre de la variable objeto que espera Apollo
                             userInput: this.client,
                         }
                     }
                 )
-                //cuando el resultado al llamado del API es OK
                 .then((result) => {
-                    //se crean las variables en el localStorage (ver App.vue completeSignUp+completeLogIn)
-                    //emit es para comunicar del componente hijo al componente padre
                     console.log("checkpoint ok newclient");
                     alert("El cliente fue agregado.");
                     this.$router.push({name: "home"});
 
                 })
-                //cuando el resultado al llamado del API es NOK
                 .catch((error) => {
                     alert("Ha fallado el registro del cliente. Por favor intente de nuevo.")
                 })
@@ -173,7 +162,6 @@
         padding: 10px 25px;
         margin: 5px 0 25px 0;
     }
-
     .addClient button{
         color: #000000;
         font-size: 18px;
