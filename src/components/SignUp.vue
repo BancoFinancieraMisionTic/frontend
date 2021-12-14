@@ -26,11 +26,8 @@
     import gql from 'graphql-tag';
     export default {
         name: "SignUp",
-        //Todo lo que se pone en "data" se vuelven variables globales de javascript
         data: function(){
             return {
-                //Aquí es la misma estructura de variables en apollo
-                //objeto con los valores que el usuario pone en el formulario, iniciamente vacío
                 user: {
                     cedula: "",
                     username: "",
@@ -42,13 +39,9 @@
             }
         },
         methods: {
-            //Esta es la función que se llama cuando el usuario le da clic al botón del formulario
-            //  de registro
             signUpEmployee: async function(){
-                //la invocaicón del $apollo se hablita or la inclusión del apolloprovider en el main.js
                 await this.$apollo.mutate(
                     {
-                        //Aquí es la misma estructura de mutation/query del apollo
                         mutation: gql`
                             mutation SignUpEmployee($userInput: SignUpInput) {
                               signUpEmployee(userInput: $userInput) {
@@ -59,27 +52,18 @@
 
                         `,
                         variables:{
-                            //OJO!!! con el nombre de la variable objeto que espera Apollo
                             userInput: this.user,
                         }
                     }
                 )
-                //cuando el resultado al llamado del API es OK
                 .then((result) => {
-                    //se crean las variables en el localStorage (ver App.vue completeSignUp+completeLogIn)
                     let dataSignUp = {
-                        //username se toma de lo que ingresó el usuario
                         username     : this.user.username,
-                        //refresh y access de la R// del servicio web
-                        // se debe mirar en la R// del apollo porque el nombre (signUpUser xej)
-                        //  dependerá del nombre del método que se creó en el resolver
                         tokenRefresh : result.data.signUpEmployee.refresh,
                         tokenAccess  : result.data.signUpEmployee.access
                     };
-                    //emit es para comunicar del componente hijo al componente padre
                     this.$emit("completedSignUp", dataSignUp);
                 })
-                //cuando el resultado al llamado del API es NOK
                 .catch((error) => {
                     console.log(error);
                     alert("Ha fallado el registro. Por favor intente de nuevo.")
@@ -110,7 +94,9 @@
         align-items: center;
     }
     .signUpUser h2{
-        color: #283747;
+        color: #10257c;
+        font-size: 35px;
+        margin-bottom: 20px;
     }
     .signUpUser form{
         width: 70%;
@@ -131,6 +117,7 @@
         border-radius: 5px;
         padding: 10px 20px;
         margin-right: 10px;
+        margin-top: 15px;
     }
     .signUpUser button:hover{
         color: #000000;

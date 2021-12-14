@@ -1,9 +1,9 @@
 <template>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <div class="addClient" align="center">
-        <div class="form-group">
-            <h2>Registrar información de un Cliente</h2>
-
+        <br/>
+        <h2>Registrar información de un Cliente</h2>
+        <div class="form-group">           
             <form v-on:submit.prevent="createClient" >
                 <input type="number" v-model="client.cedula_client" placeholder=" Cédula del cliente">
                 <br>
@@ -40,7 +40,7 @@
                 
                 <input type="number" v-model="client.income" placeholder=" Ingresos mensuales (COP)">
                 <br>
-
+                <br>
                 <button type="submit">Enviar</button>
             </form>
         </div>
@@ -127,7 +127,7 @@
         align-items: center;
     }
     .form-group {
-        border: 3px solid  #283747;
+        border: 0px solid  #283747;
         border-radius: 10px;
         width: 35%;
         height: 90%;
@@ -137,9 +137,10 @@
         justify-content: center;
         align-items: center;
     }
-    .addClient h2{
-        color: #000000;
-    }
+    .addClient h2 {
+        color: #10257c;
+        font-size: 35px;
+    } 
     .addClient form{
         width: 80%;
         

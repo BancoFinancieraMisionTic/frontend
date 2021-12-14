@@ -6,9 +6,9 @@
  
              <thead>
                 <tr>              
-                    <th><a href="/#/clientes/nuevo"><img width="50%" class="circlelanding" src = "../assets/clients.png" alt=""></a></th>
-                    <th><a href="/#/clientes/reportes"><img width="50%" class="circlelanding" src = "../assets/reports.png" alt=""></a></th>
-                    <th><a href="/#/empleado/cuenta"><img width="50%" class="circlelanding" src = "../assets/employee.png" alt=""></a></th>
+                    <th><a href="/#/clientes/nuevo"><img width="50%" class="circlelanding" src = "../assets/clients_modified.png" alt=""></a></th>
+                    <th><a href="/#/clientes/reportes"><img width="50%" class="circlelanding" src = "../assets/reports_modified.png" alt=""></a></th>
+                    <th><a href="/#/empleado/cuenta"><img width="50%" class="circlelanding" src = "../assets/employee_modified.png" alt=""></a></th>
                 </tr>
              </thead>
             </table>           

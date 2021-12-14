@@ -1,6 +1,6 @@
 <template>
     <div class="loginUser">
-        <div class="containerLoginUser">
+        <div class="containerLoginUser" align="center">
             <h2>Iniciar sesión</h2>
             <form v-on:submit.prevent="processLogInUser" method="POST">
                 <input type="text" v-model="user.username" placeholder="Username">
@@ -74,7 +74,7 @@
         align-items: center;
     }
     .containerLoginUser {
-        border: 3px solid #283747;
+        border: 0.5px solid #283747;
         border-radius: 10px;
         width: 25%;
         height: 60%;
@@ -84,7 +84,8 @@
         align-items: center;
     }
     .loginUser h2{
-        color: #283747;
+        color: #10257c;
+        margin-bottom: 20px;
     }
     .loginUser form{
         width: 70%;
@@ -105,6 +106,7 @@
         border-radius: 5px;
         padding: 10px 20px;
         margin-right: 10px;
+        margin-top: 15px;
     }
     .loginUser button:hover{
         color: #000000;

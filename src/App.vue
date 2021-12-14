@@ -8,9 +8,9 @@
       </label>
       <nav>
         <button v-if="isAuth" v-on:click="loadHome"> Home </button>
-        <button v-if="isAuth" v-on:click="loadReports"> Reportes </button>
+        <!--<button v-if="isAuth" v-on:click="loadReports"> Reportes </button>
         <button v-if="isAuth" v-on:click="loadNewClient"> Nuevo Cliente </button>        
-        <button v-if="isAuth" v-on:click="loadAccount"> Mi cuenta </button>
+        <button v-if="isAuth" v-on:click="loadAccount"> Mi cuenta </button>-->
         <button v-if="isAuth" v-on:click="logOut"> Cerrar Sesión </button>
         <button v-if="!isAuth" v-on:click="loadLogIn"> Iniciar Sesión </button>
         <button v-if="!isAuth" v-on:click="loadSignUp"> Registrarse </button>
@@ -135,10 +135,10 @@
   }    
   .header nav {
     height: 100%;
-    width: 30%;
+    width: 22%;
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(5, minmax(0,1fr));
+    grid-template-columns: repeat(2, minmax(0,1fr));
     justify-content: space-around;
     align-items: center;
     font: 150% system-ui;
