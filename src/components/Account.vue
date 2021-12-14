@@ -1,11 +1,12 @@
 <template>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <div class="information">
-        <div class="home">
-            <h1>Bienvenido <span>{{ employeeDetailById.name }}</span>!</h1>
+        <div class="home" align="center">
+            <h1>Hola <span>{{ employeeDetailById.name }}</span></h1>
         </div>
-        <div class="details">
-            <h3>Su información registrada es la siguiente.</h3>
+        <h3>Su información registrada es la siguiente:</h3>
+
+        <div class="details" >
             <h2>
                 Cédula:
                 <span>{{ employeeDetailById.cedula }}</span>
@@ -22,8 +23,8 @@
                 Sexo:
                 <span>{{ employeeDetailById.gender }}</span>
             </h2>
-                <button class="buttonUpdateEmployee" v-on:click="clickUpdateEmployee(userId)">Actualizar mi información</button>
         </div>
+        <button align="center" class="buttonUpdateEmployee" v-on:click="clickUpdateEmployee(userId)">Actualizar mi información</button>
     </div>
 </template>
 
@@ -87,14 +88,21 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
-    
+    }   
     .information h1 {
-        font-size: 60px;
-        color: #283747;
+        font-size: 38px;
+        color: #10257c;
+    }
+    .information h1 span {
+        font-size: 35px;
+        color: #10257c;
     }
     .information h2 {
-        font-size: 40px;
+        font-size: 20px;
+        color: #283747;
+    }
+    .information h3 {
+        font-size: 20px;
         color: #283747;
     }
     .information span {
@@ -102,16 +110,16 @@
         font-weight: bold;
     }
     .details h3 {
-        font-size: 35px;
+        font-size: 25px;
         color: #283747;
         text-align: center;
     }
     .details h2 {
-        font-size: 35px;
+        font-size: 22px;
         color: #283747;
     }
     .details {
-        border: 0px solid rgba(0, 0, 0, 0.3);
+        border: 0.5px solid rgba(0, 0, 0, 0.3);
         border-radius: 20px;
         padding: 30px 80px;
         margin: 30px 0 0 0;
@@ -124,6 +132,7 @@
         border-radius: 5px;
         padding: 10px 20px;
         margin-right: 10px;
+        margin-top: 20px;
     }
     .buttonUpdateEmployee:hover{
         color: #000000;

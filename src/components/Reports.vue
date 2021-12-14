@@ -1,8 +1,9 @@
 <template>
     <div id="reporte">
         <div class="container-table" align="center">
-            <br/>
+            <br/><br/><br/>
             <h2>Reportes Sarlaft</h2>
+            <br/>
             <div id="date-component">
                 <label>Seleccione una fecha inicial: &nbsp</label>
                 <input type="date" name="dateGreater" v-model="dateGreater" v-on:change="reloadFilter"/>
@@ -29,7 +30,7 @@
                 </template>
                 <template v-else>
                     <tr>
-                        <td colspan="8"><p>A partir de la fecha {{new Date().toLocaleString("es-CO").split(",")[0]}} no existe ningún reporte.</p></td>
+                        <td colspan="8"><p>A partir de la fecha {{ dateGreater }} no existe ningún reporte.</p></td>
                     </tr>
                 </template>
             </table>
@@ -50,7 +51,7 @@
             return {
                 userId: jwt_decode( localStorage.getItem("tokenRefresh") ).user_id,
                 username: localStorage.getItem("username") || "none",
-                dateGreater:new Date(),
+                dateGreater: new Date(),
                 reportsListDateGreaterAll: []
             }
         },
@@ -153,9 +154,17 @@
         color: white;
     }
     #reporte > h2 {
-        color: #283747;
+        color: #1836b2;
         font-size: 25px;
     }   
+    #reporte h2 {
+        color: #10257c;
+        font-size: 35px;
+    } 
+    #reporte h3 {
+        color: #10257c;
+        font-size: 25px;
+    } 
     .w3-button{
         color: #000000;
         font-size: 18px;
