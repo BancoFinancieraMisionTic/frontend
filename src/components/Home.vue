@@ -6,7 +6,7 @@
  
              <thead>
                 <tr>              
-                    <th><a href="/#/clientes/nuevo"><img width="50%" class="circlelanding" src = "../assets/clients_modified.png" alt=""></a></th>
+                    <th><a href="/#/clientes"><img width="50%" class="circlelanding" src = "../assets/clients_modified.png" alt=""></a></th>
                     <th><a href="/#/clientes/reportes"><img width="50%" class="circlelanding" src = "../assets/reports_modified.png" alt=""></a></th>
                     <th><a href="/#/empleado/cuenta"><img width="50%" class="circlelanding" src = "../assets/employee_modified.png" alt=""></a></th>
                 </tr>

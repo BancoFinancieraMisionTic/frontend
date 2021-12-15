@@ -116,7 +116,7 @@
                 .then((result) => {
                     console.log("checkpoint ok update");
                     alert("Actualización de datos exitosa.");
-                    this.$router.push({name: "home"});
+                    this.$router.push('/empleado/cuenta');
                     this.$apollo.queries.employeeDetailById.refetch()
                 })
                 .catch((error) => {
