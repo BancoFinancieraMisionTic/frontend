@@ -86,8 +86,8 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        margin-top: 70px;
     }   
     .information h1 {
         font-size: 38px;

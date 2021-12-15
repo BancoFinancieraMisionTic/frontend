@@ -7,7 +7,8 @@ import SignUp                                          from './components/SignUp
 import Home                                            from './components/Home.vue'
 import UpdateEmployee                                  from './components/UpdateEmployee.vue'
 import Reports                                         from './components/Reports.vue'
-import AddClient                                         from './components/AddClient.vue'       
+import Clients                                         from './components/Clients.vue' 
+import AddClient                                       from './components/AddClient.vue'       
 import Account                                         from './components/Account.vue' 
 
 
@@ -62,6 +63,14 @@ const routes = [
       requiresAuth: true,
     }
   },
+  {
+    path: '/clientes',
+    name: "clients",
+    component: Clients,
+    meta: {
+      requiresAuth: true,
+    }
+  }, 
   {
     path: '/clientes/nuevo',
     name: "addClient",
