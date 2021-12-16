@@ -110,8 +110,6 @@ export default{
                             }
                     }
                 ).then((result) => {
-                    //console.log(result.data);
-                    //console.log(result.data.personalInfoByClientId);
                     this.infocli=Object.keys(result.data.personalInfoByClientId);
                 })
                 .catch((error) => {

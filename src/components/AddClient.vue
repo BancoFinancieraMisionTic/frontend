@@ -102,7 +102,6 @@
                     }
                 )
                 .then((result) => {
-                    console.log("checkpoint ok newclient");
                     alert("El cliente fue agregado.");
                     this.$router.push({name: "home"});
 

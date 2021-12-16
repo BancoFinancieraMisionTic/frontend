@@ -1,16 +1,12 @@
 <template>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <div id="app" class="app">
-
     <div class="header">
       <label for = "" class ="brand">
         <a href=""><img src = "./assets/sarlaft_logo.png" alt=""></a>
       </label>
       <nav>
         <button v-if="isAuth" v-on:click="loadHome"> Home </button>
-        <!--<button v-if="isAuth" v-on:click="loadReports"> Reportes </button>
-        <button v-if="isAuth" v-on:click="loadNewClient"> Nuevo Cliente </button>        
-        <button v-if="isAuth" v-on:click="loadAccount"> Mi cuenta </button>-->
         <button v-if="isAuth" v-on:click="logOut"> Cerrar Sesión </button>
         <button v-if="!isAuth" v-on:click="loadLogIn"> Iniciar Sesión </button>
         <button v-if="!isAuth" v-on:click="loadSignUp"> Registrarse </button>
@@ -61,10 +57,6 @@
 
       loadNewClient: function(){
         this.$router.push({name: "addClient"});
-      },
-
-      loadTransaction: function(){
-        this.$router.push({name: "transaction"});
       },
       
       logOut: function(){
